@@ -2,6 +2,7 @@
 
 from tkinter import filedialog
 from tkinter import *
+from PDF import *
 OPENFILE = " "
 
 root = Tk()
