@@ -1,19 +1,28 @@
 #main project file. contains most of the GUI code.
 
+from tkinter import filedialog
 from tkinter import *
 
+
 root = Tk()
-root.geometry("250x150")
+root.geometry("300x150")
+
+def openFile(event):
+    filedialog.askopenfilename(filetypes=(("pdf files", "*.pdf"), ("all files", "*.*")))
 
 
 topFrame = Frame(root)
 topFrame.pack()
 
-label_1 = Label(topFrame, text="PDF Directory")
-entry_1 = Entry(topFrame)
+pathLabel = Label(topFrame, text="PDF Directory")
+pathEntry = Entry(topFrame)
+pathIcon = PhotoImage(file="gui/open.png")
+pathIconLabel = Label(topFrame, image= pathIcon)
+pathIconLabel.bind("<Button-1>", openFile)
 
-label_1.grid(row=0, column=0)
-entry_1.grid(row=0, column=1)
+pathLabel.grid(row=0, column=0)
+pathEntry.grid(row=0, column=1)
+pathIconLabel.grid(row=0, column=2)
 
 bottomFrame = Frame(root)
 bottomFrame.pack(side=BOTTOM)
